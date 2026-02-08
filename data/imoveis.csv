@@ -1,4 +1,4 @@
-id|cover|name|location|category|price|type
-1|../images/list/p-1.png|Condomínio Ilhas de Santorini|Rua Capitão Pedroso 416 Restinga Porto Alegre 84 m2|Venda|R$ 149.131,54|Apartamento
-2|../images/list/p-1.png|Condomínio Ilhas de Santorini|Rua Capitão Pedroso 416 Restinga Porto Alegre 84 m2|Venda|R$ 149.131,54|Apartamento
-3|../images/list/p-1.png|Condomínio Ilhas de Santorini|Rua Capitão Pedroso 416 Restinga Porto Alegre 84 m2|Venda|R$ 149.131,54|Apartamento
+id|cover|name|location|category|price|type|leilao
+1|/images/list/p-1.png|Condomínio Ilhas de Santorini|Rua Capitão Pedroso 416 Restinga Porto Alegre 84 m2|Venda|R$ 149.131,54|Apartamento|Caixa
+2|/images/list/p-1.png|Condomínio Ilhas de Santorini|Rua Capitão Pedroso 416 Restinga Porto Alegre 84 m2|Venda|R$ 149.131,54|Apartamento|B
+3|/images/list/p-1.png|Condomínio Ilhas de Santorini|Rua Capitão Pedroso 416 Restinga Porto Alegre 84 m2|Venda|R$ 149.131,54|Apartamento|C
