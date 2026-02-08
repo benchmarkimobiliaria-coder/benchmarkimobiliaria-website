@@ -3,12 +3,12 @@
   "name": "Benchmark Imobiliária",
   "icons": [
     {
-      "src": "%PUBLIC_URL%/images/logo.png",
+      "src": "./images/logo.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "%PUBLIC_URL%/favicon.png",
+      "src": "./favicon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
