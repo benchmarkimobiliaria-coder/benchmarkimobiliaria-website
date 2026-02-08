@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.29b5f3a6.css",
-    "main.js": "/static/js/main.714c56df.js",
-    "static/media/about.jpg": "/static/media/about.56e92b20e762df2fa5de.jpg",
-    "static/media/pricing.jpg": "/static/media/pricing.4552ccf3b91e93029513.jpg",
-    "static/media/services.jpg": "/static/media/services.13be7fde05782bd5e2e8.jpg",
-    "static/media/banner.png": "/static/media/banner.1a3c8a0a448e8e24f6a0.png",
-    "index.html": "/index.html",
-    "main.29b5f3a6.css.map": "/static/css/main.29b5f3a6.css.map",
-    "main.714c56df.js.map": "/static/js/main.714c56df.js.map"
+    "main.css": "/benchmarkimobiliaria-website/static/css/main.cfbb2075.css",
+    "main.js": "/benchmarkimobiliaria-website/static/js/main.e7b547f6.js",
+    "static/media/about.jpg": "/benchmarkimobiliaria-website/static/media/about.56e92b20e762df2fa5de.jpg",
+    "static/media/pricing.jpg": "/benchmarkimobiliaria-website/static/media/pricing.4552ccf3b91e93029513.jpg",
+    "static/media/services.jpg": "/benchmarkimobiliaria-website/static/media/services.13be7fde05782bd5e2e8.jpg",
+    "static/media/banner.png": "/benchmarkimobiliaria-website/static/media/banner.1a3c8a0a448e8e24f6a0.png",
+    "index.html": "/benchmarkimobiliaria-website/index.html",
+    "main.cfbb2075.css.map": "/benchmarkimobiliaria-website/static/css/main.cfbb2075.css.map",
+    "main.e7b547f6.js.map": "/benchmarkimobiliaria-website/static/js/main.e7b547f6.js.map"
   },
   "entrypoints": [
-    "static/css/main.29b5f3a6.css",
-    "static/js/main.714c56df.js"
+    "static/css/main.cfbb2075.css",
+    "static/js/main.e7b547f6.js"
   ]
 }
