@@ -2,16 +2,20 @@ import React, { useState } from "react"
 import "./header.css"
 import { nav } from "../../data/Data"
 import { Link } from "react-router-dom"
+import { useFavorites } from "../../../context/FavoritesContext"
 
 const Header = () => {
   const [navList, setNavList] = useState(false)
+  const { favorites } = useFavorites()
 
   return (
     <>
       <header>
-        <div className='container flex'>
+        <div className='container flex' >
           <div className='logo'>
-            <img src='./images/logo.png' alt='' />
+            <Link to='/'>
+            <img src={`${process.env.PUBLIC_URL}/images/logo.png`} alt='' />
+            </Link>
           </div>
           <div className='nav'>
             <ul className={navList ? "small" : "flex"}>
@@ -23,12 +27,12 @@ const Header = () => {
             </ul>
           </div>
           <div className='button flex'>
-            <h4>
-               Minha Lista
-            </h4>
-            <button className='btn1'>
+            <Link to='/mylist' className='mylist-link' title='Minha Lista'>
+              <a>Lista de Desejos </a> <i className='fa fa-heart'></i> {favorites.length > 0 && <span className='badge'>{favorites.length}</span>}
+            </Link>
+            {/* <button className='btn1'>
               <i className='fa fa-sign-out'></i> Entrar
-            </button>
+            </button> */}
           </div>
 
           <div className='toggle'>

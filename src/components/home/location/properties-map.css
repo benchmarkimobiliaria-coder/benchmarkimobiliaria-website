@@ -1,0 +1,145 @@
+.properties-map-container {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.map-wrapper {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.addresses-list {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.addresses-list h3 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.empty-message {
+  color: #999;
+  text-align: center;
+  padding: 20px;
+}
+
+.addresses-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  max-height: 600px;
+}
+
+.address-item {
+  background: #fff;
+  padding: 12px;
+  border-radius: 6px;
+  border-left: 4px solid #25b579;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.address-item:hover {
+  box-shadow: 0 2px 6px rgba(37, 181, 121, 0.2);
+  border-left-color: #1a8a5a;
+}
+
+.address-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.address-header i {
+  color: #25b579;
+  font-size: 14px;
+}
+
+.address-name {
+  flex: 1;
+  word-break: break-word;
+  color: #333;
+}
+
+.badge {
+  background: #dc3848;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.address-items {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.address-item-detail {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #666;
+  padding: 4px 0;
+}
+
+.item-name {
+  font-weight: 500;
+  color: #333;
+  flex: 1;
+}
+
+.item-price {
+  color: #25b579;
+  font-weight: bold;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+@media (max-width: 1024px) {
+  .properties-map-container {
+    grid-template-columns: 1fr;
+  }
+
+  .addresses-list {
+    max-height: 300px;
+  }
+
+  .addresses-scroll {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .properties-map-container {
+    padding: 0;
+  }
+
+  .map-wrapper iframe {
+    height: 400px !important;
+  }
+
+  .addresses-list {
+    padding: 12px;
+  }
+
+  .addresses-scroll {
+    max-height: 200px;
+  }
+}

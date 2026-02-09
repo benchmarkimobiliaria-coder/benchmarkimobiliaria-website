@@ -8,8 +8,11 @@ const Pricing = () => {
   return (
     <>
       <section className='pricing mb'>
-        <Back name='30 days money back guarantee' title='No Extra Fees. Friendly Support' cover={img} />
-        <div className='price container'>
+  <Back 
+    name='Planos de Assessoria' 
+    title='Escolha o suporte ideal para investir em imóveis de leilão' 
+    cover={img} 
+  />        <div className='price container'>
           <PriceCard />
         </div>
       </section>

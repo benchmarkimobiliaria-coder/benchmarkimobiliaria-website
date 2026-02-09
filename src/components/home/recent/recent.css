@@ -8,6 +8,15 @@
   font-size: 13px;
   display: inline-block;
 }
+.price-item {
+  margin-top: 15px;
+  width: auto;
+  height: 20%;
+  color: #25b579;
+  font-weight: 700;
+  text-align: left;
+}
+
 .recent .category i {
   font-size: 20px;
   color: #bec7d8;
@@ -18,4 +27,9 @@
 .recent .button {
   border-top: 1px solid #e4e8f3;
   padding: 10px 30px;
+}
+
+@media(max-width:900px)
+{
+    .imoveis-list{margin:2.5%}
 }

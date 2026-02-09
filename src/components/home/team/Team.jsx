@@ -8,12 +8,12 @@ const Team = () => {
     <>
       <section className='team background'>
         <div className='container'>
-          <Heading title='Our Featured Agents' subtitle='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.' />
+          <Heading title='Nossa Equipe' subtitle='Conheça os profissionais que estão à sua disposição para ajudar no seu investimento imobiliário.' />
 
           <div className='content mtop grid3'>
             {team.map((val, index) => (
               <div className='box' key={index}>
-                <button className='btn3'>{val.list} Listings</button>
+                {/* <button className='btn3'>{val.list}</button> */}
                 <div className='details'>
                   <div className='img'>
                     <img src={val.cover} alt='' />
@@ -29,11 +29,11 @@ const Team = () => {
                     ))}
                   </ul>
                   <div className='button flex'>
-                    <button>
+                    <button formAction={`mailto:${val.email}`} className='btn3'>
                       <i className='fa fa-envelope'></i>
-                      Message
+                      Entrar em Contato
                     </button>
-                    <button className='btn4'>
+                    <button className='btn4' formAction={`tel:${val.phone}`}>
                       <i className='fa fa-phone-alt'></i>
                     </button>
                   </div>

@@ -154,17 +154,17 @@ img {
 .mb {
   margin-bottom: 80px;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .grid4,
   .grid3,
   .grid5 {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
   .heading {
     width: 100%;
   }
   .container {
-    max-width: 90%;
+    max-width: 100%;
   }
   .back::after,
   .back img,

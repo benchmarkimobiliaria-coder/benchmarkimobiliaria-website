@@ -1,0 +1,199 @@
+.mylist-container {
+  padding: 40px 0;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-state p {
+  font-size: 18px;
+  color: #999;
+  margin-bottom: 20px;
+}
+
+.btn-primary-link {
+  display: inline-block;
+  background: #25b579;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-primary-link:hover {
+  background: #1a8a5a;
+}
+
+.mylist-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.favorites-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.favorite-item {
+  display: flex;
+  gap: 20px;
+  padding: 16px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.fav-image {
+  flex-shrink: 0;
+  width: 150px;
+}
+
+.fav-image img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.fav-info {
+  flex: 1;
+}
+
+.fav-info h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+
+.fav-info p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.price-highlight {
+  font-size: 16px;
+  font-weight: bold;
+  color: #25b579;
+}
+
+.fav-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+}
+
+.btn-view,
+.btn-remove {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-view {
+  background: #2f8cba;
+  color: #fff;
+}
+
+.btn-view:hover {
+  background: #1f5a8a;
+}
+
+.btn-remove {
+  background: #dc3848;
+  color: #fff;
+}
+
+.btn-remove:hover {
+  background: #b82838;
+}
+
+.list-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
+
+.btn-whatsapp,
+.btn-email,
+.btn-clear {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-whatsapp {
+  background: #25d366;
+  color: #fff;
+}
+
+.btn-whatsapp:hover {
+  background: #1db854;
+}
+
+.btn-email {
+  background: #ea4335;
+  color: #fff;
+}
+
+.btn-email:hover {
+  background: #d63321;
+}
+
+.btn-clear {
+  background: #dc3848;
+  color: #fff;
+}
+
+.btn-clear:hover {
+  background: #b82838;
+}
+
+@media (max-width: 768px) {
+  .favorite-item {
+    flex-direction: column;
+  }
+
+  .fav-image {
+    width: 100%;
+  }
+
+  .fav-image img {
+    height: 200px;
+  }
+
+  .fav-actions {
+    flex-direction: row;
+  }
+
+  .list-actions {
+    flex-direction: column;
+  }
+
+  .btn-whatsapp,
+  .btn-email,
+  .btn-clear {
+    width: 100%;
+  }
+}

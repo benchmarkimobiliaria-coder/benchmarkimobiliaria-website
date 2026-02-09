@@ -3,7 +3,7 @@ import Papa from "papaparse"
 // Função para carregar dados do CSV
 export const loadListFromCSV = async () => {
   try {
-    const response = await fetch("/data/imoveis.csv")
+    const response = await fetch(`${process.env.PUBLIC_URL}/data/imoveis.csv`)
     const csvText = await response.text()
     
     return new Promise((resolve, reject) => {
@@ -13,12 +13,16 @@ export const loadListFromCSV = async () => {
         complete: (results) => {
           const data = results.data.map((row) => ({
             id: parseInt(row.id),
-            cover: row.cover,
+            cover: `${process.env.PUBLIC_URL}${row.cover}`,
+            images: (row.images || row.cover)
+              .split(';')
+              .map(img => `${process.env.PUBLIC_URL}${img.trim()}`),
             name: row.name,
             location: row.location,
             category: row.category,
             price: row.price,
             type:  row.type,
+            leilao: row.leilao,
           }))
           resolve(data)
         },
@@ -49,17 +53,17 @@ export const nav = [
     path: "/",
   },
   {
-    text: "sobre",
+    text: "Sobre",
     path: "/about",
   },
   {
-    text: "serviços",
-    path: "/services",
+    text: "Imóveis",
+    path: "/imoveis",
   },
-  {
-    text: "blog",
-    path: "/blog",
-  },
+  // {
+  //   text: "blog",
+  //   path: "/blog",
+  // },
   {
     text: "Planos",
     path: "/pricing",
@@ -71,27 +75,27 @@ export const nav = [
 ]
 export const featured = [
   {
-    cover: "../images/hero/h1.png",
+    cover: `${process.env.PUBLIC_URL}/images/hero/h1.png`,
     name: "Casas",
     total: "",
   },
   {
-    cover: "../images/hero/h2.png",
+    cover: `${process.env.PUBLIC_URL}/images/hero/h2.png`,
     name: "Sobrados",
     total: "",
   },
   {
-    cover: "../images/hero/h3.png",
+    cover: `${process.env.PUBLIC_URL}/images/hero/h3.png`,
     name: "Apartamentos",
     total: "",
   },
   {
-    cover: "../images/hero/h4.png",
+    cover: `${process.env.PUBLIC_URL}/images/hero/h4.png`,
     name: "Imóveis Comerciais",
     total: "",
   },
   {
-    cover: "../images/hero/h6.png",
+    cover: `${process.env.PUBLIC_URL}/images/hero/h6.png`,
     name: "Casas em Condomínio",
     total: "",
   },
@@ -118,205 +122,142 @@ export const awards = [
     name: "IITCA Green Award",
   },
 ]
-export const location = [
-  {
-    id: 1,
-    name: "New Orleans, Louisiana",
-    Villas: "12 Villas",
-    Apartments: "10 Apartments",
-    Offices: "07 Offices",
-    cover: "./images/location/city-1.png",
-  },
-  {
-    id: 2,
-    name: "Jerrsy, United State",
-    Villas: "12 Villas",
-    Apartments: "10 Apartments",
-    Offices: "07 Offices",
-    cover: "./images/location/city-2.png",
-  },
-  {
-    id: 3,
-    name: "Liverpool, London",
-    Villas: "12 Villas",
-    Apartments: " 10 Apartments",
-    Offices: "07 Offices",
-    cover: "./images/location/city-3.png",
-  },
-  {
-    id: 4,
-    name: "NewYork, United States",
-    Villas: "12 Villas",
-    Apartments: " 10 Apartments",
-    Offices: "07 Offices",
-    cover: "./images/location/city-4.png",
-  },
-  {
-    id: 5,
-    name: "Montreal, Canada",
-    Villas: "12 Villas",
-    Apartments: " 10 Apartments",
-    Offices: "07 Offices",
-    cover: "./images/location/city-5.png",
-  },
-  {
-    id: 6,
-    name: "California, USA",
-    Villas: "12 Villas",
-    Apartments: " 10 Apartments",
-    Offices: "07 Offices",
-    cover: "./images/location/city-6.png",
-  },
-]
+
+
+// Função para carregar dados do CSV
+export const loadLocationFromCSV = async () => {
+  try {
+    const response = await fetch(`${process.env.PUBLIC_URL}/data/location.csv`)
+    const csvText = await response.text()
+    
+    return new Promise((resolve, reject) => {
+      Papa.parse(csvText, {
+        header: true,
+        skipEmptyLines: true,
+        complete: (results) => {
+          const data = results.data.map((row) => ({
+            id: parseInt(row.id),
+            name: row.name,
+            Villas: row.villas,
+            Apartments: row.apartments,
+            Offices: row.offices,
+            cover: `${process.env.PUBLIC_URL}/images/location/${row.cover}`
+          }))
+          resolve(data)
+        },
+        error: (error) => {
+          reject(error)
+        },
+        delimiter: '|', // Ajustado para usar o delimitador '|
+      })
+    })
+  } catch (error) {
+    console.error("Erro ao carregar o CSV:", error)
+    throw error
+  }
+}
+
+// Variável que será preenchida com dados do CSV
+export var location = []
+
+// Carregar dados do CSV ao importar este módulo
+loadLocationFromCSV().then((data) => {
+  console.log("Dados carregados do CSV:", data) // Verificar os dados carregados
+  location = data
+})
+
 export const team = [
   {
-    list: "50",
-    cover: "../images/customer/team-1.jpg",
+    // list: "50",
+    cover: `${process.env.PUBLIC_URL}/favicon.png`,
     address: "Porto Alegre, RS",
     name: "Lucas Rodrigues",
+    email: "contato@benchmarkimobiliaria.com.br",
+    phone: "+55 51 99999-9999",
     icon: [<i class='fa-brands fa-facebook-f'></i>, <i class='fa-brands fa-linkedin'></i>, <i class='fa-brands fa-twitter'></i>, <i class='fa-brands fa-instagram'></i>],
   },
   {
-    list: "70",
-    cover: "../images/customer/team-2.jpg",
+    // list: "70",
+    cover: `${process.env.PUBLIC_URL}/favicon.png`,
     address: "Porto Alegre, RS",
     name: "Pietro Sartori",
+    email: "contato@benchmarkimobiliaria.com.br",
+    phone: "+55 51 99999-9999",
     icon: [<i class='fa-brands fa-facebook-f'></i>, <i class='fa-brands fa-linkedin'></i>, <i class='fa-brands fa-twitter'></i>, <i class='fa-brands fa-instagram'></i>],
   },
   {
-    list: "80",
-    cover: "../images/customer/team-3.jpg",
+    // list: "80",
+    cover: `${process.env.PUBLIC_URL}/favicon.png`,
     address: "Porto Alegre, RS",
     name: "Diego Martins",
+    email: "contato@benchmarkimobiliaria.com.br",
+    phone: "+55 51 99999-9999",
     icon: [<i class='fa-brands fa-facebook-f'></i>, <i class='fa-brands fa-linkedin'></i>, <i class='fa-brands fa-twitter'></i>, <i class='fa-brands fa-instagram'></i>],
-  },
-  {
-    list: "51",
-    cover: "../images/customer/team-4.jpg",
-    address: "Porto Alegre, RS",
-    name: "Especialista 4",
-    icon: [<i class='fa-brands fa-facebook-f'></i>, <i class='fa-brands fa-linkedin'></i>, <i class='fa-brands fa-twitter'></i>, <i class='fa-brands fa-instagram'></i>],
-  },
-  {
-    list: "42",
-    cover: "../images/customer/team-5.jpg",
-    address: "Porto Alegre, RS",
-    name: "Especialista 5",
-    icon: [<i class='fa-brands fa-facebook-f'></i>, <i class='fa-brands fa-linkedin'></i>, <i class='fa-brands fa-twitter'></i>, <i class='fa-brands fa-instagram'></i>],
-  },
-  {
-    list: "38",
-    cover: "../images/customer/team-5.jpg",
-    address: "Porto Alegre, RS",
-    name: "Especialista 6",
-    icon: [<i class='fa-brands fa-facebook-f'></i>, <i class='fa-brands fa-linkedin'></i>, <i class='fa-brands fa-twitter'></i>, <i class='fa-brands fa-instagram'></i>],
-  },
+  }
 ]
+
 export const price = [
   {
-    plan: "Análise Prévia Completa",
+    plan: "Plano Bronze – Análise Prévia Completa",
     price: "350",
-    ptext: "01 (um) imóvel",
+    ptext: "por imóvel",
     currency: "BRL",
     list: [
-      {
-        icon: <i class='fa-solid fa-check'></i>,
-        text: "Análise completa da matrícula do imóvel",
-      },
-      {
-        icon: <i class='fa-solid fa-check'></i>,
-        text: "Análise detalhada do edital do leilão",
-      },
-      {
-        icon: <i class='fa-solid fa-check'></i>,
-        text: "Levantamento de todas as dívidas do imóvel (propter rem)",
-      },
-      {
-        icon: <i class='fa-solid fa-check'></i>,
-        text: "Verificação da existência processos judiciais",
-      },
-      {
-        icon: <i class='fa-solid fa-check'></i>,
-        text: "Parecer técnico sobre a viabilidade do investimento",
-      },
-      {
-        icon: <i class='fa-solid fa-check'></i>,
-        text: "Adicione mais imóveis à análise por R$ 100,00 cada",
-      },
-      { change: "color", icon: <i class='fa-solid fa-x'></i>, text: "Personal Help Support" },
-      { change: "color", icon: <i class='fa-solid fa-x'></i>, text: "Enterprise SLA" },
+      { icon: <i className="fa-solid fa-check"></i>, text: "Análise completa da matrícula do imóvel" },
+      { icon: <i className="fa-solid fa-check"></i>, text: "Análise detalhada do edital do leilão" },
+      { icon: <i className="fa-solid fa-check"></i>, text: "Levantamento de dívidas (IPTU e condomínio)" },
+      { icon: <i className="fa-solid fa-check"></i>, text: "Verificação de processos e riscos relevantes" },
+      { icon: <i className="fa-solid fa-check"></i>, text: "Parecer técnico sobre viabilidade e segurança do investimento" },
+      { icon: <i className="fa-solid fa-check"></i>, text: "Relatório final com recomendação objetiva (vale / não vale)" },
+      { icon: <i className="fa-solid fa-check"></i>, text: "Imóvel adicional por R$ 100,00" },
+      { change: "color", icon: <i className="fa-solid fa-x"></i>, text: "Acompanhamento durante o leilão" },
+      { change: "color", icon: <i className="fa-solid fa-x"></i>, text: "Registro do imóvel no cartório" },
     ],
   },
+
   {
-    best: "Best Value",
-    plan: "Standard",
-    price: "49",
-    ptext: "per user, per month",
+    plan: "Plano Prata – Acompanhamento de Arrematação",
+    price: "3%",
+    ptext: "do valor do arremate (mín. R$ 5.000)",
     currency: "BRL",
     list: [
-      {
-        icon: <i class='fa-solid fa-check'></i>,
-        text: "99.5% Uptime Guarantee",
-      },
-      {
-        icon: <i class='fa-solid fa-check'></i>,
-        text: "150GB CDN Bandwidth",
-      },
-      {
-        icon: <i class='fa-solid fa-check'></i>,
-        text: "10GB Cloud Storage",
-      },
-      {
-        icon: <i class='fa-solid fa-check'></i>,
-        text: "Personal Help Support",
-      },
-      {
-        change: "color",
-        icon: <i class='fa-solid fa-x'></i>,
-        text: "Enterprise SLA",
-      },
+      { icon: <i className="fa-solid fa-check"></i>, text: "Inclui todos os itens do Plano Bronze" },
+      { icon: <i className="fa-solid fa-check"></i>, text: "Cadastro e orientação na plataforma do leilão" },
+      { icon: <i className="fa-solid fa-check"></i>, text: "Acompanhamento durante a arrematação" },
+      { icon: <i className="fa-solid fa-check"></i>, text: "Emissão e conferência da carta de arrematação" },
+      { icon: <i className="fa-solid fa-check"></i>, text: "Análise de contrato ou escritura pública" },
+      { icon: <i className="fa-solid fa-check"></i>, text: "Emissão e conferência da guia de ITBI" },
+      { icon: <i className="fa-solid fa-check"></i>, text: "Orientação para transferência do IPTU" },
+      { icon: <i className="fa-solid fa-check"></i>, text: "Registro do imóvel no cartório em nome do arrematante" },
+      { change: "color", icon: <i className="fa-solid fa-x"></i>, text: "Desocupação do imóvel" },
+      { change: "color", icon: <i className="fa-solid fa-x"></i>, text: "Negociação de dívidas ou baixa de gravames" },
     ],
   },
+
   {
-    plan: "Platinum",
-    price: "79",
-    ptext: "2 user, per month",
+    plan: "Plano Ouro – Assessoria Completa",
+    price: "5%",
+    ptext: "do valor do arremate (mín. R$ 8.000)",
     currency: "BRL",
     list: [
-      {
-        icon: <i class='fa-solid fa-check'></i>,
-        text: "100% Uptime Guarantee",
-      },
-      {
-        icon: <i class='fa-solid fa-check'></i>,
-        text: "200GB CDN Bandwidth",
-      },
-      {
-        icon: <i class='fa-solid fa-check'></i>,
-        text: "20GB Cloud Storage",
-      },
-      {
-        icon: <i class='fa-solid fa-check'></i>,
-        text: "Personal Help Support",
-      },
-      {
-        icon: <i class='fa-solid fa-check'></i>,
-        text: "Enterprise SLA",
-      },
+      { icon: <i className="fa-solid fa-check"></i>, text: "Inclui todos os itens do Plano Prata" },
+      { icon: <i className="fa-solid fa-check"></i>, text: "Desocupação do imóvel" },
+      { icon: <i className="fa-solid fa-check"></i>, text: "Negociação de dívidas e regularização completa" },
+      { icon: <i className="fa-solid fa-check"></i>, text: "Baixa de gravames (penhora, indisponibilidade, etc.)" },
+      { icon: <i className="fa-solid fa-check"></i>, text: "Troca de chaves e entrega formal do imóvel" },
+      { icon: <i className="fa-solid fa-check"></i>, text: "Acompanhamento até o imóvel estar pronto para uso ou venda" },
     ],
   },
-]
+];
+
+
 export const footer = [
   {
-    title: "LAYOUTS",
-    text: [{ list: "Home Page" }, { list: "About Page" }, { list: "Service Page" }, { list: "Property Page" }, { list: "Contact Page" }, { list: "Single Blog" }],
+    title: "Nossos Serviços",
+    text: [{ list: "Contato", link: "/contact" }, { list: "Sobre", link: "/about" }],
   },
   {
-    title: "ALL SECTIONS",
-    text: [{ list: "Headers" }, { list: "Features" }, { list: "Attractive" }, { list: "Testimonials" }, { list: "Videos" }, { list: "Footers" }],
-  },
-  {
-    title: "COMPANY",
-    text: [{ list: "About" }, { list: "Blog" }, { list: "Pricing" }, { list: "Affiliate" }, { list: "Login" }, { list: "Changelog" }],
+    title: "Imóveis",
+    text: [{ list: "Home", link: "/" }, { list: "Favoritos", link: "/mylist" }],
   },
 ]

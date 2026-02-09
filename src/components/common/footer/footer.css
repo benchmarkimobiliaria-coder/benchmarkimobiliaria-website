@@ -54,5 +54,10 @@ footer ul li {
 @media screen and (max-width: 800px) {
   footer .container {
     grid-template-columns: repeat(2, 1fr);
+    margin: 2.5%;
+  }
+  .footerContact .container {
+        margin: 2.5%;
+
   }
 }

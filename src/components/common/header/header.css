@@ -1,6 +1,6 @@
 header {
   background-color: #fff;
-  height: 10vh;
+  height: 10%;
   box-shadow: 0 5px 30px rgb(0 22 84 / 10%);
   padding: 15px 0;
   position: sticky;
@@ -31,18 +31,58 @@ header h4 {
   font-weight: 500;
   margin-right: 20px;
 }
+header .mylist-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  color: #2f8cba;
+  text-decoration: none;
+  transition: 0.3s;
+}
+header .mylist-link:hover {
+  color: #1f5a8a;
+}
+header .mylist-link .badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #dc3848;
+  color: #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
 header .toggle {
   display: none;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   header {
     padding: 0;
   }
-  header img {
-    margin-top: 30px;
+  header a {
+    margin-left: 5%;
   }
-  header .button {
+
+  .mylist-link a {
     display: none;
+  }
+
+  header img {
+    margin-top: 5%;
+  }
+  /* Mostrar o container de botões no mobile, mas manter layout compacto */
+  header .button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 8px;
   }
   header .nav .flex {
     display: none;
@@ -50,6 +90,7 @@ header .toggle {
   header .toggle {
     display: block;
     margin-top: 20px;
+    margin: 2.5%;
   }
   header .small {
     position: absolute;

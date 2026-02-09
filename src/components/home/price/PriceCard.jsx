@@ -2,6 +2,12 @@ import React from "react"
 import { price } from "../../data/Data"
 
 const PriceCard = () => {
+  const handleContractClick = (planName) => {
+    const message = `Tenho interesse em contratar o plano: ${planName}`
+    const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`
+    window.open(url, "_blank")
+  }
+
   return (
     <>
       <div className='content flex mtop'>
@@ -41,6 +47,7 @@ const PriceCard = () => {
                 background: item.plan === "Standard" ? "#2f8cba" : "#fff",
                 color: item.plan === "Standard" ? "#fff" : "#2f8cba",
               }}
+              onClick={() => handleContractClick(item.plan)}
             >
               Contratar {item.plan}
             </button>

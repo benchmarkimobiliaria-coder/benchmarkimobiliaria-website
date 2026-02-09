@@ -1,30 +1,23 @@
-import React from "react"
+﻿import React from "react"
 import Heading from "../../common/Heading"
-import { location } from "../../data/Data"
+import PropertiesMap from "./PropertiesMap"
 import "./style.css"
 
-const Location = () => {
+const Location = ({ properties = [] }) => {
   return (
     <>
       <section className='location padding'>
         <div className='container'>
           <Heading title='Explore por Região' subtitle='Encontre as melhores oportunidades de investimento em diferentes regiões.' />
 
-          <div className='content grid3 mtop'>
-            {location.map((item, index) => (
-              <div className='box' key={index}>
-                <img src={item.cover} alt='' />
-                <div className='overlay'>
-                  <h5>{item.name}</h5>
-                  <p>
-                    <label>{item.Villas}</label>
-                    <label>{item.Offices}</label>
-                    <label>{item.Apartments}</label>
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          {properties.length > 0 && (
+            <div className='map-section mtop'>
+              <h3>Mapa de Imóveis</h3>
+              <PropertiesMap properties={properties} />
+            </div>
+          )}
+        {properties.length === 0 && <p className='empty-message'>Nenhum imóvel encontrado para exibir no mapa.</p>}
+
         </div>
       </section>
     </>

@@ -1,0 +1,7 @@
+.property-filter{background:#fff;padding:16px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.property-filter .pf-row{margin-bottom:12px}
+.property-filter label{display:block;font-weight:600;margin-bottom:6px;color:#333}
+.property-filter input[type="text"],.property-filter input{width:100%;padding:8px 10px;border:1px solid #e6e6e6;border-radius:6px}
+.pf-types{display:flex;flex-wrap:wrap;gap:8px}
+.pf-type{display:inline-flex;align-items:center;gap:6px;background:#f7f7f7;padding:6px 10px;border-radius:20px;font-size:13px}
+@media(max-width:768px){.pf-types{max-height:160px;overflow:auto}}

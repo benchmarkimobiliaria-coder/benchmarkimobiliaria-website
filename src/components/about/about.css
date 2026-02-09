@@ -12,7 +12,7 @@
   margin-bottom: 20px;
   line-height: 30px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .about .container {
     flex-direction: column;
   }
