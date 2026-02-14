@@ -46,15 +46,15 @@ const Footer = () => {
               <p>Receba informações sobre nossos serviços e oportunidades de investimento.</p>
 
               <div className='input flex'>
-                <input 
-                  type='email' 
-                  placeholder='Email' 
+                <input
+                  type='email'
+                  placeholder='Email'
                   value={footerEmail}
                   onChange={(e) => setFooterEmail(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleNewsletterSubmit()}
                 />
-                <div className='button' style={{marginLeft: "2%"}}>
-                  <button 
+                <div className='button' style={{ marginLeft: "2%" }}>
+                  <button
                     className="fa fa-angle-double-right"
                     onClick={handleNewsletterSubmit}
                     title="Inscrever-se"
@@ -69,15 +69,15 @@ const Footer = () => {
               <h3>{val.title}</h3>
               <ul>
                 {val.text.map((items) => (
-                  <li key={items.list}><a href={items.link} style={{color: "rgba(214, 214, 214, 0.85)"}}>{items.list}</a></li>
-                ))} 
+                  <li key={items.list}><a href={items.link} style={{ color: "rgba(214, 214, 214, 0.85)" }}>{items.list}</a></li>
+                ))}
               </ul>
             </div>
           ))}
         </div>
       </footer>
       <div className='legal'>
-        <span>© 2026 Benchmark Imobiliária. Designd By Lucas Rodrigues.</span>
+        <span>© 2026 Benchmark Imobiliária. Developed By Winckler & Rodrigues.</span>
       </div>
     </>
   )

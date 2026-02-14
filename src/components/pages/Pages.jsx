@@ -11,11 +11,13 @@ import Contact from "../contact/Contact"
 import Property from "../property/Property"
 import MyList from "../mylist/MyList"
 import Imoveis from "../imoveis/Imoveis"
+import ScrollToTop from "./ScrollToTop"
 
 const Pages = () => {
   return (
     <>
       <Router>
+        <ScrollToTop />
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />

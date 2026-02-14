@@ -68,7 +68,7 @@ const Home = () => {
       <Hero onSearch={handleSearch} />
       <Recent list={filtered} />
       {/* <Awards /> */}
-      <Featured />
+      {/* <Featured /> */}
       <Location properties={allProperties} />
       <Team />
       <Price />

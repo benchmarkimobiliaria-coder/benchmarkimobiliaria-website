@@ -13,17 +13,15 @@ const PriceCard = () => {
       <div className='content flex mtop'>
         {price.map((item, index) => (
           <div className='box shadow' key={index}>
-            <div className='topbtn'>
-              <button className='btn3'>{item.best}</button>
-            </div>
-            <h3>{item.plan}</h3>
+            <h3>{item.icon}<br />{item.plan}</h3>
             <h1>
               <span>{item.currency === "BRL" ? "R$" : "$"}</span>
               {item.price}
             </h1>
             <p>{item.ptext}</p>
+            <p>{item.ptext2}</p>
 
-            <ul>
+            <ul style={{ textAlign: "left" }}>
               {item.list.map((val) => {
                 const { icon, text, change } = val
                 return (
@@ -42,11 +40,7 @@ const PriceCard = () => {
               })}
             </ul>
             <button
-              className='btn5'
-              style={{
-                background: item.plan === "Standard" ? "#2f8cba" : "#fff",
-                color: item.plan === "Standard" ? "#fff" : "#2f8cba",
-              }}
+              className='btn3'
               onClick={() => handleContractClick(item.plan)}
             >
               Contratar {item.plan}

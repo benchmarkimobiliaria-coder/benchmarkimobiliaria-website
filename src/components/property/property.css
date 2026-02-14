@@ -1,7 +1,25 @@
-.property-container{padding:40px 0
+.property-container {
+  padding: 20px 0
 }
-.property-main{display:flex;gap:24px}.property-left{flex:1}
-.property-right{width:420px}
+
+.property-main {
+  display: flex;
+  gap: 24px
+}
+
+.property-left {
+  flex: 1
+}
+
+.property-right {
+  width: 420px
+}
+
+.map-wrapper {
+  margin-bottom: 20px;
+  border-radius: 6px;
+  overflow: hidden;
+}
 
 /* Carousel Styles */
 .property-carousel {
@@ -115,28 +133,126 @@
   box-shadow: 0 0 6px rgba(37, 181, 121, 0.4);
 }
 
-.property-image img{width:100%;height:auto;border-radius:6px}
-.property-info h2{margin:8px 0}.property-price{font-size:20px;color:#2b8a6e;margin:6px 0}
-.property-cta{margin-top:12px}
-.btn-primary{display:inline-block;background:#25b579;color:#fff;padding:10px 16px;border-radius:6px;text-decoration:none;border:none;cursor:pointer}
-.property-details{list-style:none;padding:0;margin:10px 0}
-.property-details li{padding:6px 0;border-bottom:1px solid #f0f0f0}
+.property-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px
+}
+
+.property-info h2 {
+  margin: 8px 0
+}
+
+.property-right s {
+  font-size: 18px;
+}
+
+.thumbnail-fallback,
+.main-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  color: #999;
+}
+
+.thumbnail-fallback {
+  width: 100%;
+  height: 100%;
+  font-size: 24px;
+}
+
+.main-fallback {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  font-size: 64px;
+}
+
+.discount {
+  font-size: 16px;
+  color: #001276;
+  font-weight: 700;
+  background-color: #25b5791a;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.simple-description {
+  font-size: 12px;
+  color: grey;
+}
+
+.property-price {
+  font-size: 20px;
+  color: #2b8a6e;
+  /* margin: 6px 0; */
+  font-weight: 700
+}
+
+.property-cta {
+  margin-top: 12px
+}
+
+.btn-primary {
+  display: inline-block;
+  background: #25b579;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer
+}
+
+.property-details {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0
+}
+
+.property-details li {
+  padding: 6px 0;
+  border-bottom: 1px solid #f0f0f0
+}
 
 @media screen and (max-width: 800px) {
   .property-main {
     margin: 2.5%;
     flex-direction: column;
+    gap: 0;
   }
-  
+
+  .property-right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .map-wrapper {
+    order: 10;
+    height: 200px;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+
   .carousel-prev,
   .carousel-next {
     width: 32px;
     height: 32px;
     font-size: 16px;
   }
-  
+
   .thumbnail {
     flex: 0 0 60px;
     height: 60px;
   }
+
+  .property-carousel {
+    margin-bottom: 0;
+  }
+
+  .property-container {
+    padding: 0;
+  }
+
 }
